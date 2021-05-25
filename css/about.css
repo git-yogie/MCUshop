@@ -1,0 +1,245 @@
+.container-about {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.img-container {
+    margin: 50px;
+    max-width: 100%;
+    position: static;
+    margin: auto;
+    z-index: 1;
+}
+
+.img-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-about {
+    margin: 20px auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+.text-about p {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.about-icons {
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* about icon */
+.about-icons .us {
+    max-width: 150px;
+    min-width: 90px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.us p {
+    font-size: 20px;
+}
+
+.us img {
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.us img:hover {
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.2), 0 8px 23px 0 rgba(0, 0, 0, 0.19);
+    transform: scale(1.1);
+}
+
+/* sosial media icon */
+.social-media {
+    margin: 10px;
+    text-align: center;
+}
+
+.social-media .icons {
+    margin: 20px auto;
+    max-width: 60%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 80px;
+}
+
+
+.icons a {
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    color: #7e8386;
+    border-radius: 25%;
+    transition: all 0.3s ease-in-out;
+}
+
+.icons a:hover {
+    transform: scale(1.03);
+}
+
+.icons .fa-instagram:hover {
+    color: white;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.icons .fa-facebook-square:hover {
+    color: #3498db;
+}
+
+.icons .fa-twitter:hover {
+    color: #3498db;
+}
+
+.icons .fa-youtube:hover {
+    color: #e74c3c;
+}
+/* sosial media icon end css */
+
+.contact-us {
+    margin-top: 20px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.contact-us .contact {
+    margin-top: 10px;
+    width: 45%;
+}
+
+form .input-control {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-control input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 30px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+.input-control textarea {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+form .submit {
+    margin: 10px auto;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 30px;
+    border-radius: 18px;
+}
+
+.block {
+    width: 100%;
+}
+
+.contact-us .location {
+    margin-top: 10px;
+    width: 45%;
+}
+
+.contact-us .location img {
+    border: 1px solid #3498db;
+    width: 80%;
+    height: auto;
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.container-location {
+    position: relative;
+    width: 100%;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.container-location .image {
+    opacity: 0.3;
+}
+
+.text-location {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
+
+.container-location:hover .middle {
+    opacity: 1;
+}
+
+@media screen and (max-width: 1000px) {}
+
+
+/* responsive untuk smartphone dilayar 680px kebawah v::after */
+
+@media screen and (max-width: 680px) {
+    .contact-us {
+        flex-direction: column-reverse;
+    }
+    .icons{
+        font-size: 10px;
+    }
+
+    .icons a{
+        font-size: 40px;
+    }
+    /* thats an icon */
+
+    .about-icons {
+        flex-wrap: wrap;
+    }
+
+    .contact-us .location {
+        width: 100%;
+    }
+    .contact-us .contact {
+        width: 100%;
+    }
+    .text-about p {
+        margin: 10px;
+        font-size: 15px;
+        text-align: justify;
+        }
+        
+        .us img {
+          width: 100%;
+          height: auto;
+        }
+        .us{
+            flex: 0.3;
+        }
+    .us p {
+        font-size: 14px;
+    }
+    /* .card{
+      width: 25%;
+    } */
+}

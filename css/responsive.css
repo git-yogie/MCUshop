@@ -1,0 +1,22 @@
+
+/* responsive untuk tablet dengan maksimal screen size 1000px */
+@media screen and (max-width : 1000px) {
+  
+      .text-about p{
+            margin: 10px;
+            font-size: 10px;
+        }
+
+}
+
+/* responsive untuk smartphone dilayar 680px kebawah v::after */
+@media screen and (max-width : 680px) { 
+      .us{
+          font-size: 13px;
+        }
+  /* .card{
+        width: 25%;
+      } */
+
+
+}

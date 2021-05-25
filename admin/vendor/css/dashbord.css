@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* import addON */
+/* @import url('admin\vendor\css\addOn.css'); */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display: flex;
+    
+}
+
+/* navigasi */
+nav{
+    position: fixed;
+    background-color: #3498db;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    padding: 10px;
+
+}
+
+nav .logo{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: white;
+}
+
+nav .links{
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+
+nav .links a{
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+
+}
+
+.links a i{
+    font-size: 20px;
+    margin: 10px;
+}
+
+/* end navigasi */
+
+
+/* container */
+
+.container{
+    position: sticky;
+    left: 20%;
+    padding: 20px;
+    width: 80%;
+    
+}
+
+.container .header{
+    margin-bottom: 20px;
+}
+
+/* end  container*/
+
+/* table */
+
+.table-Admin{
+    margin-top: 20px;
+}
+
+.table-Admin table{
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+.table-Admin table tr{
+    height: 30px;
+}
+.table-Admin table tr td{
+    padding:5px;
+    border-bottom: 1px solid #34495e;
+}
+
+.table-Admin .nav-table{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination {
+    display: inline-block;
+    margin-top: 10px;
+    margin: 10px auto;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+  }
+  
+  .pagination a.active {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #bdc3c7;}
+

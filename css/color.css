@@ -1,0 +1,44 @@
+
+/*  ini background color flat ui, untuk 
+    untuk ganti warna silahkan ganti
+    di kode css dibawah ini thnks
+*/
+.primary{
+    color: #ecf0f1;
+    background-color: #3498db;
+}
+
+.success{
+    color: #ecf0f1;
+    background-color: #2ecc71;
+
+}
+
+.warning{
+    color: #ecf0f1;
+    background-color: #f39c12;
+}
+.danger{
+    color: #ecf0f1;
+    background-color: #e74c3c;
+}
+.secondary{
+    color: #34495e;
+    background-color: #bdc3c7;
+}
+
+.text-primary{
+    color: #3498db;
+}
+.text-success{
+    color: #2ecc71;
+}
+.text-danger{
+    color: #e74c3c;
+}
+.text-warning{
+    color: #f39c12;
+}
+.text-secondary{
+    color: #bdc3c7;
+}
