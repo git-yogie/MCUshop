@@ -2,6 +2,8 @@
 session_start();
 include "database.php";
 
+
+
 if ($_POST['username'] and $_POST['password']) {
     $username = $_POST['usernam'];
     $password = md5($_POST['password']);
