@@ -16,7 +16,7 @@ window.onclick = function(event) {
   }
 }
 
-function editKategori(id){
+function editSlider(id){
   const inputK = document.getElementById('nama')
   const inputId = document.getElementById('kid')
   const xhr = new XMLHttpRequest;

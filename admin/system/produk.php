@@ -68,6 +68,8 @@ if ($_GET['query'] == 'add') {
     }
 
     if ($_FILES['gambar']['name'] !== '') {
+        $get = getDataById('product',$id);
+        unlink('../vendor/gambar/'.$get['gambar']);
         $ekstensi_diperbolehkan  = array('png', 'jpg','jpeg');
         $nama_gambar = $_FILES['gambar']['name'];
         $x = explode('.', $nama_gambar);

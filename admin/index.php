@@ -1,5 +1,6 @@
-<?php include "template/header.php" 
-
+<?php 
+include "template/header.php" ;
+include 'dataSource\queryTable.php';
 ?>
 <div class="container">
     <div class="header">
@@ -18,7 +19,7 @@
         <div class="card-stat">
             <div class="icon primary"><i class="fas fa-users"></i></div>
             <div class="body">
-                <p>Jumlah User</p>
+                <p>Jumlah customer</p>
                 <span>100</span>
             </div>
         </div>
@@ -26,7 +27,7 @@
             <div class="icon danger"><i class="fas fa-box"></i></div>
             <div class="body">
                 <p>Jumlah Produk</p>
-                <span>100</span>
+                <span><?=num_rows('product')?></span>
             </div>
         </div>
         <div class="card-stat">

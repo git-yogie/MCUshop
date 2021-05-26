@@ -122,9 +122,9 @@ if ($_GET['system'] == 'slider') {
             if ($_GET['id']) {
                 $id = $_GET['id'];
                 $get = getDataById('slider', $id);
-                if($get['status'] == 0){
+                if ($get['status'] == 0) {
                     $status = 1;
-                }else{
+                } else {
                     $status = 0;
                 }
                 $result = mysqli_query($koneksi, "UPDATE slider SET status = '$status'  WHERE id = '$id' ");
@@ -134,6 +134,88 @@ if ($_GET['system'] == 'slider') {
                         'value' => 'slider ' . $get['nama'] . 'status diubah.',
                     ];
                     header('location:../slider.php');
+                } else {
+                    die('Query Error : ' . $koneksi->errno . ' - ' . $koneksi->error);
+                    echo 'gagal';
+                }
+            }
+            break;
+    }
+} elseif ($_GET['system'] == 'user') {
+    switch ($_GET['query']) {
+        case 'add':
+            if ($_POST) {
+                $nama = $_POST['nama'];
+                $username = $_POST['username'];
+                $password = md5($_POST['password']);
+                $email = $_POST['email'];
+                $result = mysqli_query($koneksi, "INSERT INTO user ( nama, username, email, password) VALUES ('$nama','$username','$email','$password')");
+
+                if ($result == true) {
+                    $_SESSION['alert'] = [
+                        'alert' => 'success',
+                        'value' => 'user baru berhasil ditambahkan.',
+                    ];
+                    header('location:../user.php');
+                } else {
+                    die('Query Error : ' . $koneksi->errno . ' - ' . $koneksi->error);
+                    echo 'gagal';
+                }
+            }
+            break;
+        case 'update':
+            if ($_POST['id']) {
+                $nama = $_POST['nama'];
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $id = $_POST['id'];
+                if($_POST['password']){
+                    $password = md5($_POST['password']);
+                    $result = mysqli_query($koneksi, "UPDATE user SET nama = '$nama', username = '$username', email = '$email', password = '$password'  WHERE id = '$id' ");
+                }else{
+                    $result = mysqli_query($koneksi, "UPDATE user SET nama = '$nama', username = '$username', email = '$email'  WHERE id = '$id' ");
+                }
+                
+                if ($result == true) {
+                    $_SESSION['alert'] = [
+                        'alert' => 'success',
+                        'value' => 'user '.$username.' berhasil edit.',
+                    ];
+                    header('location:../user.php');
+                } else {
+                    die('Query Error : ' . $koneksi->errno . ' - ' . $koneksi->error);
+                    echo 'gagal';
+                }
+            }
+            break;
+        case 'getbyid':
+            $id = $_GET['id'];
+            if ($_GET['id']) {
+                $data = getDataById('user',$id);
+                echo json_encode($data);
+            }
+
+            break;
+        case 'username':
+            if ($_GET['username']) {
+                $username = $_GET['username'];
+                $user = mysqli_query($koneksi, "SELECT * FROM user where username='$username'");
+                $cek = [
+                    'result' => mysqli_num_rows($user)
+                ];
+
+                echo json_encode($cek);
+            }
+            break;
+        case 'delete':
+            if ($_GET['id']) {
+                $hapus = hapusData($_GET['id'], 'user');
+                if ($hapus == true) {
+                    $_SESSION['alert'] = [
+                        'alert' => 'success',
+                        'value' => 'user berhasil dihapus',
+                    ];
+                    header('location:../user.php');
                 } else {
                     die('Query Error : ' . $koneksi->errno . ' - ' . $koneksi->error);
                     echo 'gagal';

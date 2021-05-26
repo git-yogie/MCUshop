@@ -4,7 +4,6 @@ include 'dataSource\queryTable.php';
 include 'system/function.php';
 
 $slider = getAllData('slider');
-session_start();
 
 ?>
 <div class="container">
@@ -40,7 +39,7 @@ session_start();
                     <td><?= $slide[2] ?></td>
                     <td>
                         <a href='system/dashboard.php?system=slider&query=aktivasi&id=<?=$slide[0]?>' class="btn <?=$slide[3] == 1 ? 'success' : 'danger'?>"><i class="fas fa-power-off"></i></i> aktif</a>
-                        <button onclick='editKategori(<?=$slide[0]?>)' class='btn warning'><i class='fas fa-edit'></i> Edit</button>
+                        <button onclick='editSlider(<?=$slide[0]?>)' class='btn warning'><i class='fas fa-edit'></i> Edit</button>
                         <button class="btn danger" onclick="hapus(<?= $slide[0] ?>)"><i class="fas fa-trash"></i> Hapus</button>
                     </td>
                 </tr>

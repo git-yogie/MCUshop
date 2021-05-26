@@ -3,7 +3,6 @@ include "template/header.php";
 include "system/database.php";
 include "dataSource/queryTable.php";
 $kategori = getAllData("kategori");
-session_start();
 
 if(isset($_GET['id'])){
     $dataProduk = getDataByid('product',$_GET['id']);

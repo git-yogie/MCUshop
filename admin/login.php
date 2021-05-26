@@ -3,7 +3,7 @@
 include "system/config.php";
     session_start();
 
-    if(!empty($_SESSION['status'])){
+    if(!empty($_SESSION['data-login'])){
         header('location:index.php');
     }
 ?>
@@ -21,7 +21,7 @@ include "system/config.php";
 <body>
     <div class="card" style="width: 30%;">
         <div class="card-header">
-            <h2>Login Admin</h2>
+            <h2>Login Admins</h2>
         </div>
        <?php if(!empty($_SESSION['alert']['value'])) :?>
         <div class="alert-card">

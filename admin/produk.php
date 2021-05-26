@@ -2,7 +2,6 @@
 include "template/header.php";
 include 'dataSource\queryTable.php';
 include 'system/function.php';
-session_start();
 if (!empty($_GET['cariProduk'])) {
     $keyword = $_GET['cariProduk'];
     $data = search($keyword, 'product', 'nama');
@@ -71,7 +70,7 @@ $kategori = getAllData("kategori");
                     <td><?= $no ?></td>
                     <td style="width='100px"><?= word_limit($data[1], 4) ?></td>
                     <?php foreach ($kategori as $k) : ?>
-                        <?= $data[2] == $k[0] ? '<td>' . $k[1] . '</td>' : '' ?>
+                        <?= $data[2] == $k[0] ? '<td>' . $k[1] . '</td>' : '    ' ?>
                     <?php endforeach; ?>
                     <td><?= 'Rp ' . number_format($data[4], 0, "", ".") ?></td>
                     <td>12</td>
