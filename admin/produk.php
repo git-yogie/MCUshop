@@ -72,7 +72,7 @@ $kategori = getAllData("kategori");
                     <?php foreach ($kategori as $k) : ?>
                         <?= $data[2] == $k[0] ? '<td>' . $k[1] . '</td>' : '    ' ?>
                     <?php endforeach; ?>
-                    <td><?= 'Rp ' . number_format($data[4], 0, "", ".") ?></td>
+                    <td><?= 'Rp ' . number_format($data[5], 0, "", ".") ?></td>
                     <td>12</td>
                     <td>
                         <a href='show_product.php?id=<?= $data[0] ?>' class="btn info"><i class="fas fa-info-circle"></i> Detail</a>

@@ -254,3 +254,29 @@ form .submit {
     overflow: scroll;
 }
 
+ul.breadcrumb {
+    margin: 10px;
+    list-style: none;
+  }
+  
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 15px;
+  }
+  
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "  / ";
+  }
+  
+  ul.breadcrumb li a {
+    color: #3498db;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+  
+  ul.breadcrumb li a:hover {
+    color: #2980b9;
+    transform: scale(1.03);
+  }

@@ -38,10 +38,11 @@ if ($_GET['query'] == 'add') {
     $brand = $_POST['Brand'];
     $harga = $_POST['harga'];
     $kategori = $_POST['kategori'];
+    $subkategori = $_POST['sub_kategori'];
     $spesifikasi = mysqli_real_escape_string($koneksi,$_POST['spesifikasi']);
     $deskripsi = $_POST['deskripsi'];
 
-    $result = mysqli_query($koneksi, "INSERT INTO product ( nama, Kategori, brand, harga, gambar,spesifikasi, deskripsi) VALUES ('$namaProduk','$kategori','$brand','$harga','$nama_gambar','$spesifikasi','$deskripsi')");
+    $result = mysqli_query($koneksi, "INSERT INTO product ( nama, Kategori,sub_kategori, brand, harga, gambar,spesifikasi, deskripsi) VALUES ('$namaProduk','$kategori',$subkategori,'$brand','$harga','$nama_gambar','$spesifikasi','$deskripsi')");
 
     if ($result == true) {
         $_SESSION['alert'] = [
@@ -62,6 +63,7 @@ if ($_GET['query'] == 'add') {
         $brand = $_POST['Brand'];
         $harga = $_POST['harga'];
         $kategori = $_POST['kategori'];
+        $subkategori = $_POST['sub_kategori'];
         $spesifikasi = mysqli_real_escape_string($koneksi,$_POST['spesifikasi']);
         $deskripsi = $_POST['deskripsi'];
         $id = $_POST['id'];
@@ -97,7 +99,7 @@ if ($_GET['query'] == 'add') {
         }
        $result = mysqli_query($koneksi,"UPDATE product SET nama = '$namaProduk', Kategori = '$kategori', brand = '$brand', harga = '$harga', gambar = '$nama_gambar', spesifikasi = '$spesifikasi', deskripsi = '$deskripsi' WHERE id = '$id' ");
     }else{
-        $result = mysqli_query($koneksi,"UPDATE product SET nama = '$namaProduk', Kategori = '$kategori', brand = '$brand', harga = '$harga', spesifikasi = '$spesifikasi', deskripsi = '$deskripsi' WHERE id = '$id' ");
+        $result = mysqli_query($koneksi,"UPDATE product SET nama = '$namaProduk', Kategori = '$kategori',sub_kategori = '$subkategori', brand = '$brand', harga = '$harga', spesifikasi = '$spesifikasi', deskripsi = '$deskripsi' WHERE id = '$id' ");
     }
 
     if ($result == true) {
