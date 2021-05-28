@@ -41,6 +41,7 @@ function showKategoriProduk(){
                             <td>`+no+`</td>
                             <td>`+data[i][1]+`</td>
                             <td>
+                                <button onclick='window.location = "sub_kategori.php?id=`+data[i][0]+`"' class='btn primary'><i class='fas fa-list-ul'></i> Sub Kategori</button>
                                 <button onclick='editKategori(`+data[i][0]+`)' class='btn warning'><i class='fas fa-edit'></i> Edit</button>
                                 <a href="system/kategori.php?query=delete&id=`+data[i][0]+`" class='btn danger'><i class='fas fa-trash'></i> Hapus</a>
                             </td>

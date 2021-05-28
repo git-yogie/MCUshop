@@ -5,6 +5,10 @@ include "template/header.php";
 <div class="container">
     <div class="header">
         <button class="btn primary" onclick="window.location = 'produk.php'"><i class="fas fa-arrow-left"></i> kembali</button>
+        <ul class="breadcrumb">
+            <li><a href="produk.php">Data Produk</a></li>
+            <li>Kategori</li>
+        </ul>
     </div>
     <?php if (!empty($_SESSION['alert'])) : ?>
         <div class="alert <?= $_SESSION['alert']['alert'] ?>">
@@ -20,7 +24,7 @@ include "template/header.php";
             <div class="btn primary" id="cat"><i class="fas fa-edit"></i>Tambah Kategori</div>
         </div>
         <table id='kategori' class="kategori-table">
-
+            
         </table>
     </div>
 </div>

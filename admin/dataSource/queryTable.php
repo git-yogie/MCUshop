@@ -19,6 +19,12 @@ function getDataById($table,$id){
     return mysqli_fetch_assoc($result);
 }
 
+function getDataBycolumn($table,$column,$data){
+    global $koneksi;
+    $result = mysqli_query($koneksi, "SELECT * FROM $table WHERE $column=$data");
+    return mysqli_fetch_all($result,MYSQLI_ASSOC);
+}
+
 
 function hapusData($id,$table){
     global $koneksi;
