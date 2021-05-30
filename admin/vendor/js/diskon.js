@@ -5,14 +5,14 @@ showDiskon()
 // akhir insiasi
 
 
-var modalAdd = document.getElementById("addModal");
-var btnModalAdd = document.getElementById('btnAdd')
+// var modalAdd = document.getElementById("addModal");
+// var btnModalAdd = document.getElementById('btnAdd')
 
-var modalEdit = document.getElementById("edit-modal");
-var btnModalAdd = document.getElementById('btneEdit')
+// var modalEdit = document.getElementById("edit-modal");
+// var btnModalAdd = document.getElementById('btneEdit')
 
-var shoProduk = document.getElementById("show-produk");
-var btnModalAdd = document.getElementById('btnShow')
+// var shoProduk = document.getElementById("show-produk");
+// var btnModalAdd = document.getElementById('btnShow')
 
 function showModal(modal) {
     var modal = document.getElementById(modal);
@@ -42,6 +42,8 @@ function showDiskon() {
     }
     xhr.onloadend = function () {
         data = JSON.parse(this.responseText)
+
+
         spin.innerHTML = ''
         tabel.innerHTML = `
         <tr>
@@ -80,7 +82,7 @@ function showDiskon() {
 
 var formElementProduk = document.getElementById('formTambahProduk')
 
-formElementProduk.addEventListener('submit',function(e){
+formElementProduk.addEventListener('submit', function (e) {
     e.preventDefault()
     var formData = new FormData(formElementProduk)
     var spin = document.getElementById('loading-showProduk')
@@ -88,7 +90,7 @@ formElementProduk.addEventListener('submit',function(e){
     var id = document.getElementById('id_diskon').value
     var xhr = new XMLHttpRequest;
 
-    xhr.onloadstart = function(){
+    xhr.onloadstart = function () {
         btn.classList.add('disabled')
         temp = `
         <div class="loading">
@@ -98,12 +100,12 @@ formElementProduk.addEventListener('submit',function(e){
         `
         spin.innerHTML = temp
     }
-    xhr.onloadend = function(){
+    xhr.onloadend = function () {
         spin.innerHTML = ' '
         btn.classList.remove('disabled')
         produkList(id)
     }
-    xhr.open("POST","system/dashboard.php?system=discount&query=addProduk")
+    xhr.open("POST", "system/dashboard.php?system=discount&query=addProduk")
     xhr.send(formData)
 
 })
@@ -173,7 +175,7 @@ function produk(kategori = null) {
         select.innerHTML = ``
         data.forEach(data => {
             select.innerHTML += `
-            <option value='`+data['id']+`'>`+ truncateWords(data['nama'], 3, '..') + ` | ` + data['brand'] + ` | Rp.` + dotInt(data['harga']) + `</option>
+            <option value='`+ data['id'] + `'>` + truncateWords(data['nama'], 3, '..') + ` | ` + data['brand'] + ` | Rp.` + dotInt(data['harga']) + `</option>
             `
         });
     }
@@ -187,14 +189,22 @@ function produkList(id) {
     showModal('show-produk');
     kategori()
     produk()
-    var url = 'system/dashboard.php?system=discount&query=get&id='+id
+    var url = 'system/dashboard.php?system=discount&query=get&id=' + id
     var xhr = new XMLHttpRequest;
-    xhr.onloadend = function(){
+    var view = document.getElementById('cardSlider')
+    xhr.onloadend = function () {
         var dataDiskon = JSON.parse(this.responseText)
         var spin = document.getElementById('loading-showProduk')
+        var cards = document.getElementById('cardSquare')
         var tables = document.getElementById('tableDiskon')
         document.getElementById('id_diskon').value = id
         var url = "system/dashboard.php?system=discount&query=getDiskonProduk&id=" + id
+
+        cards.innerHTML = `
+        <h3>`+dataDiskon['nama']+`</h3>
+        <p>`+dataDiskon['detail']+`</p>
+        `
+
         var xhr = new XMLHttpRequest;
         xhr.onloadstart = function () {
             temp = `
@@ -206,6 +216,24 @@ function produkList(id) {
             spin.innerHTML = temp
         }
         xhr.onloadend = function () {
+            var data = JSON.parse(this.responseText);
+            console.log(data)
+            view.innerHTML = ' '
+            data.forEach(data => {
+                view.innerHTML += `
+                <div class="card-slide">
+                <img src="vendor/gambar/`+ data['gambar'] + `" width="170px" style='margin:5px auto;' alt="">
+                <div class="card-body">
+                    <div class="card-header">
+                        <h3>`+ truncateWords(data['nama'], 3, ' ') + `</h3>
+                    </div>
+                    <h5 class="text-primary harga-txt" style='text-decoration:line-through;'>Rp `+ dotInt(data['harga']) + `</h5>
+                    <h3 class="text-primary harga-txt"'>Rp `+ dotInt(data['harga'] - Math.floor((data['harga'] * (dataDiskon['discount'] / 100)))) + `</h3>
+                </div>
+            </div>
+                `
+
+            })
             spin.innerHTML = ' '
             tables.innerHTML = `
             <tr>
@@ -218,20 +246,20 @@ function produkList(id) {
                 <td>aksi</td>
             </tr>
             `
-            no =1
-            var data = JSON.parse(this.responseText);
-            
+            no = 1
+
+
             data.forEach(data => {
                 tables.innerHTML += `
 
                 <tr>
-                    <td>`+no+`</td>
-                    <td>`+data['nama']+`</td>
-                    <td>`+data['brand']+`</td>
-                    <td>`+dataDiskon['discount']+`%</td>
-                    <td>Rp `+dotInt(data['harga'])+`</td>
-                    <td>Rp ` + dotInt(data['harga']-Math.floor((data['harga']*(dataDiskon['discount']/100)))) + `</td>
-                    <td><button class="btn danger" onclick="hapusProduk(`+ data['id'] + `,`+id+`)"><i class="fas fa-trash"></i> Hapus</button></td>
+                    <td>`+ no + `</td>
+                    <td>`+ data['nama'] + `</td>
+                    <td>`+ data['brand'] + `</td>
+                    <td>`+ dataDiskon['discount'] + `%</td>
+                    <td>Rp `+ dotInt(data['harga']) + `</td>
+                    <td>Rp ` + dotInt(data['harga'] - Math.floor((data['harga'] * (dataDiskon['discount'] / 100)))) + `</td>
+                    <td><button class="btn danger" onclick="hapusProduk(`+ data['id'] + `,` + id + `)"><i class="fas fa-trash"></i> Hapus</button></td>
                 </tr>
                 
                 `
@@ -240,18 +268,18 @@ function produkList(id) {
             if (data.length == 0) {
                 spin.innerHTML = ' <p style="text-align:center; margin:30px;">Produk Belum Ditambahkan</p> '
             }
-    
+
         }
         xhr.open("GET", url, true)
         xhr.send()
     }
-    xhr.open("GET",url,true)
+    xhr.open("GET", url, true)
     xhr.send()
 
 
 }
 
-function getDiskonByid(id){
+function getDiskonByid(id) {
     var Eid = document.getElementById('Eid');
     var nama = document.getElementById('namaDiskon');
     var detail = document.getElementById('editDetail');
@@ -261,7 +289,7 @@ function getDiskonByid(id){
     var tanggalBerakhir = document.getElementById('date-end');
     var waktuBerakhir = document.getElementById('time-end');
 
-    var url = "system/dashboard.php?system=discount&query=getDataDiskon&id="+id
+    var url = "system/dashboard.php?system=discount&query=getDataDiskon&id=" + id
     var xhr = new XMLHttpRequest;
     xhr.onloadend = function () {
         var data = JSON.parse(this.responseText);
@@ -278,7 +306,7 @@ function getDiskonByid(id){
         waktuBerakhir.value = diskonEnd[1]
         tanggalBerakhir.value = diskonEnd[0]
         showModal('editModal')
-       
+
     }
     xhr.open("GET", url, true)
     xhr.send()
@@ -314,35 +342,35 @@ formElementEdit.addEventListener('submit', function (e) {
 
 
 
-function hapus(id){
+function hapus(id) {
     var alert = confirm("anda akan menghapus diskon!");
     var alerts = document.getElementById('alerts')
-    if(alert == true){
-      var url = "system/dashboard.php?system=discount&query=delete&id=" + id
-      var xhr = new XMLHttpRequest;
-      xhr.onloadend = function(){
-        data = JSON.parse(this.responseText)
-        alerts.classList.add('success')
-        alerts.innerHTML = 'hapus data berhasil.!'
-        showDiskon()
-      }
-      xhr.open("GET",url,true)
-      xhr.send()
+    if (alert == true) {
+        var url = "system/dashboard.php?system=discount&query=delete&id=" + id
+        var xhr = new XMLHttpRequest;
+        xhr.onloadend = function () {
+            data = JSON.parse(this.responseText)
+            alerts.classList.add('success')
+            alerts.innerHTML = 'hapus data berhasil.!'
+            showDiskon()
+        }
+        xhr.open("GET", url, true)
+        xhr.send()
 
     }
 }
-function hapusProduk(id,id_diskon){
+function hapusProduk(id, id_diskon) {
     var alert = confirm("anda akan menghapus Produk!");
     var alerts = document.getElementById('alerts')
-    if(alert == true){
-      var url = "system/dashboard.php?system=discount&query=deleteProduk&id=" + id
-      var xhr = new XMLHttpRequest;
-      xhr.onloadend = function(){
-        data = JSON.parse(this.responseText)
-        produkList(id_diskon)
-      }
-      xhr.open("GET",url,true)
-      xhr.send()
+    if (alert == true) {
+        var url = "system/dashboard.php?system=discount&query=deleteProduk&id=" + id
+        var xhr = new XMLHttpRequest;
+        xhr.onloadend = function () {
+            data = JSON.parse(this.responseText)
+            produkList(id_diskon)
+        }
+        xhr.open("GET", url, true)
+        xhr.send()
 
     }
 }

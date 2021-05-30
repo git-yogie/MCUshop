@@ -2,6 +2,7 @@
 include "template/header.php";
 date_default_timezone_set('Asia/Jakarta');
 ?>
+
 <div class="container">
     <div class="header">
         <button class="btn primary" onclick="window.location = 'index.php'"><i class="fas fa-arrow-left"></i> kembali</button>
@@ -130,6 +131,18 @@ date_default_timezone_set('Asia/Jakarta');
             <span class="close" onclick="closeModal('show-produk')">&times;</span>
         </div>
         <div class="modal-body">
+            <div class="diskonan">
+                <div class="diskonan-body">
+                    <div class="card-square" id='cardSquare'>
+
+                    </div>
+                    <div class="cards-slider" id='cardSlider'>
+
+
+                    </div>
+                </div>
+            </div>
+
             <form method="post" id='formTambahProduk' class="controll">
                 <input type="hidden" id='id_diskon' name="idDiskon">
                 <div class="input-control-twoRow">

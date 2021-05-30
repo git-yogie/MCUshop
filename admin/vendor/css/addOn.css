@@ -337,3 +337,67 @@ ul.breadcrumb {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+  .diskonan-body {
+    display: flex;
+    align-items: center;
+}
+
+.card-body .card-header {
+    margin-bottom: 15px;
+}
+
+.card-body h3 {
+    margin: 5px 0px 0px 0px;
+}
+
+.card-slide .card-body {
+    padding: 10px;
+}
+
+.card-square {
+    width: 300px;
+    height: 300px;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.card-square p {
+    text-align: center;
+    font-size: large;
+}
+
+.card-square h3 {
+    text-align: center;
+}
+
+.cards-slider {
+    display: flex;
+    width: 100%;
+    overflow: scroll;
+    /* white-space: nowrap; */
+}
+
+.card-slide {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-slide h3 {
+    margin: 2px;
+}
+
+.card-slide:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
