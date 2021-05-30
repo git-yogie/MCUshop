@@ -2,16 +2,6 @@
 include "template/header.php";
 date_default_timezone_set('Asia/Jakarta');
 ?>
-<script src="vendor/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-
-<script>
-    tinymce.init({
-        selector: '#detail'
-    });
-    tinymce.init({
-        selector: '#editDetail'
-    });
-</script>
 <div class="container">
     <div class="header">
         <button class="btn primary" onclick="window.location = 'index.php'"><i class="fas fa-arrow-left"></i> kembali</button>
@@ -44,12 +34,12 @@ date_default_timezone_set('Asia/Jakarta');
         <div class="modal-body">
             <form action="" id='formAdd' class="controll" method="POST">
                 <div class="input-control">
-                    <label for="">Nama Diskon</label>
+                    <label for="">Judul Diskon</label>
                     <input type="text" name="nama" placeholder="nama diskon">
                 </div>
                 <div class="input-control">
                     <label for="">Detail</label>
-                    <textarea name="detail" id="detail" cols="30" rows="10"></textarea>
+                    <textarea name="detail" id="" cols="30" rows="10"></textarea>
                 </div>
                 <div class="input-control">
                     <label for="">jumlah Diskon (maks 70%)</label>
@@ -94,7 +84,7 @@ date_default_timezone_set('Asia/Jakarta');
             <form action="" id='formEdit' class="controll" method="POST">
                 <input type="hidden" name="id" id='Eid'>
                 <div class="input-control">
-                    <label for="">Nama Diskon</label>
+                    <label for="">Judul Diskon</label>
                     <input type="text" name="nama" id="namaDiskon" placeholder="nama diskon">
                 </div>
                 <div class="input-control">

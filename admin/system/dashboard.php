@@ -248,7 +248,6 @@ if ($_GET['system'] == 'slider') {
                 $diskon = $_POST['diskon'];
                 $tanggalMulai = mysqli_escape_string($koneksi, $_POST['date-start'] . ' ' . $_POST['time-start']);
                 $tanggalBerakhir = mysqli_escape_string($koneksi, $_POST['date-end'] . ' ' . $_POST['time-end']);
-
                 $result = mysqli_query($koneksi, "INSERT INTO diskon ( nama, detail, start, end, discount) VALUES ('$nama','$detail','$tanggalMulai','$tanggalBerakhir','$diskon')");
 
                 if ($result == true) {

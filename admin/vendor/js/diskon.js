@@ -46,7 +46,7 @@ function showDiskon() {
         tabel.innerHTML = `
         <tr>
             <td>no</td>
-            <td>Nama</td>
+            <td>Judul</td>
             <td>Tanggal Mulai</td>
             <td>Tanggal Selesai</td>
             <td>Aksi</td>
@@ -272,7 +272,7 @@ function getDiskonByid(id){
         Eid.value = data['id']
         nama.value = data['nama']
         diskon.value = data['discount']
-        tinymce.get("editDetail").setContent(data['detail']);
+        detail.innerHTML = data['detail']
         tanggalMulai.value = diskonStart[0]
         waktuMulai.value = diskonStart[1]
         waktuBerakhir.value = diskonEnd[1]
