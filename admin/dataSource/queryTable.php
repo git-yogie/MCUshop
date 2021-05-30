@@ -13,11 +13,19 @@ function getAllData($tabel){
     return $result->fetch_all();
 }
 
+function getAllDataAssoc($table){
+    global $koneksi;
+    $result = mysqli_query($koneksi,"SELECT * FROM $table");
+    return mysqli_fetch_all($result,MYSQLI_ASSOC);
+}
+
 function getDataById($table,$id){
     global $koneksi;
     $result = mysqli_query($koneksi, "SELECT * FROM $table WHERE id=$id");
     return mysqli_fetch_assoc($result);
 }
+
+
 
 function getDataBycolumn($table,$column,$data){
     global $koneksi;
@@ -30,6 +38,13 @@ function hapusData($id,$table){
     global $koneksi;
     $result = mysqli_query($koneksi, "DELETE FROM $table WHERE id=$id");
     return $result;
+}
+
+function hapusDataColumn($table,$column,$data){
+    global $koneksi;
+    $result = mysqli_query($koneksi, "DELETE FROM $table WHERE $column=$data");
+    return $result;
+
 }
 
 function search($keyword,$table,$column){

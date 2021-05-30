@@ -27,11 +27,11 @@ FrontEnd
 8. Responsive untuk semua device( laptop, Tablet, smartPhone,)
 
 teknologi
-1.PHP
-2.Javascript
-3.HTML
-4.CSS
-5.Mysql
+1. PHP
+2. Javascript
+3. HTML
+4. CSS
+5. Mysql
 
 library yang digunakan
 1.Font awsome (ikon)

@@ -50,7 +50,7 @@ include 'dataSource\queryTable.php';
     <div class="header"><h4>HomePage Setup</h4></div>
        <div class="menu">
        <button class="btn primary" onclick="window.location = 'slider.php'"><i class="far fa-image"></i> Slider</button>
-        <button class="btn primary"><i class="fas fa-tags"></i>Diskon</button>
+        <button class="btn primary" onclick="window.location = 'diskon.php'"><i class="fas fa-tags"></i>Diskon</button>
        </div>
     </div>
     <div class="table-Admin">

@@ -1,6 +1,7 @@
 <?php
 include "database.php";
 include "../dataSource/queryTable.php";
+date_default_timezone_set('Asia/Jakarta');
 session_start();
 
 if ($_GET['system'] == 'slider') {
@@ -169,17 +170,17 @@ if ($_GET['system'] == 'slider') {
                 $username = $_POST['username'];
                 $email = $_POST['email'];
                 $id = $_POST['id'];
-                if($_POST['password']){
+                if ($_POST['password']) {
                     $password = md5($_POST['password']);
                     $result = mysqli_query($koneksi, "UPDATE user SET nama = '$nama', username = '$username', email = '$email', password = '$password'  WHERE id = '$id' ");
-                }else{
+                } else {
                     $result = mysqli_query($koneksi, "UPDATE user SET nama = '$nama', username = '$username', email = '$email'  WHERE id = '$id' ");
                 }
-                
+
                 if ($result == true) {
                     $_SESSION['alert'] = [
                         'alert' => 'success',
-                        'value' => 'user '.$username.' berhasil edit.',
+                        'value' => 'user ' . $username . ' berhasil edit.',
                     ];
                     header('location:../user.php');
                 } else {
@@ -191,7 +192,7 @@ if ($_GET['system'] == 'slider') {
         case 'getbyid':
             $id = $_GET['id'];
             if ($_GET['id']) {
-                $data = getDataById('user',$id);
+                $data = getDataById('user', $id);
                 echo json_encode($data);
             }
 
@@ -221,6 +222,106 @@ if ($_GET['system'] == 'slider') {
                     echo 'gagal';
                 }
             }
+            break;
+    }
+} elseif ($_GET['system'] == 'discount') {
+    switch ($_GET['query']) {
+        case 'get':
+            if (isset($_GET['id'])) {
+                $data = getDataById('diskon', $_GET['id']);
+            } else {
+                $data = getAllDataAssoc('diskon');
+            }
+            echo json_encode($data);
+            break;
+        case 'getbyid':
+            if (!empty($_GET['id'])) {
+                $data = getDataById('kategori', $_GET['id']);
+                echo json_encode($data);
+            }
+            break;
+        case 'add':
+            // var_dump($_POST);
+            if ($_POST) {
+                $nama = $_POST['nama'];
+                $detail = $_POST['detail'];
+                $diskon = $_POST['diskon'];
+                $tanggalMulai = mysqli_escape_string($koneksi, $_POST['date-start'] . ' ' . $_POST['time-start']);
+                $tanggalBerakhir = mysqli_escape_string($koneksi, $_POST['date-end'] . ' ' . $_POST['time-end']);
+
+                $result = mysqli_query($koneksi, "INSERT INTO diskon ( nama, detail, start, end, discount) VALUES ('$nama','$detail','$tanggalMulai','$tanggalBerakhir','$diskon')");
+
+                if ($result == true) {
+                    echo 1;
+                } else {
+                    echo mysqli_errno($koneksi);
+                    echo mysqli_error($koneksi);
+                }
+            }
+            break;
+        case 'addProduk':
+            if ($_POST) {
+
+                $idDiskon = $_POST['idDiskon'];
+                $idProduk = $_POST['produk_diskon'];
+                $tanggal  =  mysqli_escape_string($koneksi, date('d-m-Y H:i:s'));
+                $result = mysqli_query($koneksi, "INSERT INTO list_produk_diskon ( id_diskon, id_produk, created) VALUES ('$idDiskon','$idProduk','$tanggal')");
+                echo json_encode($result);
+            }
+            break;
+        case 'getDataDiskon':
+            $data = getDataById('diskon', $_GET['id']);
+            echo json_encode($data);
+            break;
+        case 'update':
+            $nama = $_POST['nama'];
+            $id = $_POST['id'];
+            $detail = $_POST['details'];
+            $diskon = $_POST['diskon'];
+            $tanggalMulai = mysqli_escape_string($koneksi, $_POST['date-start'] . ' ' . $_POST['time-start']);
+            $tanggalBerakhir = mysqli_escape_string($koneksi, $_POST['date-end'] . ' ' . $_POST['time-end']);
+            if($detail == ''){
+                $result = mysqli_query($koneksi, "UPDATE diskon SET nama = '$nama', start = '$tanggalMulai', end = '$tanggalBerakhir', discount='$diskon'  WHERE id = '$id' ");
+            }else{
+                $result = mysqli_query($koneksi, "UPDATE diskon SET nama = '$nama', detail = '$detail', start = '$tanggalMulai', end = '$tanggalBerakhir', discount='$diskon'  WHERE id = '$id' ");
+            }
+            echo json_encode($result);
+            break;
+        case 'delete':
+            $hapus = hapusData($_GET['id'], 'diskon');
+            $hapusProduk = hapusDataColumn('list_produk_diskon', 'id_diskon', $_GET['id']);
+            if ($hapus == true) {
+                echo json_encode(true);
+            } else {
+                echo mysqli_error($koneksi);
+            }
+            break;
+        case 'deleteProduk':
+            $hapusProduk = hapusDataColumn('list_produk_diskon', 'id_produk', $_GET['id']);
+            if ($hapusProduk == true) {
+                echo json_encode(true);
+            } else {
+                echo mysqli_error($koneksi);
+            }
+            break;
+        case 'getDiskonProduk':
+            $data = getDataBycolumn('list_produk_diskon', 'id_diskon', intval($_GET['id']));
+            $result = [];
+            foreach ($data as $d) {
+                $result[] = getDataById('product', $d['id_produk']);
+            }
+            echo json_encode($result);
+            break;
+        case 'getProduk':
+            if (isset($_GET['id'])) {
+                $data = getDataBycolumn('product', 'kategori', $_GET['id']);
+            } else {
+                $data = getAllDataAssoc('product');
+            }
+            echo json_encode($data);
+            break;
+        default:
+            echo "sest";
             break;
     }
 }
