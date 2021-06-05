@@ -52,7 +52,6 @@ $kategori = getAllData("kategori");
                 <td>Nama</td>
                 <td>kategori</td>
                 <td>harga</td>
-                <td>Stok</td>
                 <td>Aksi</td>
             </tr>
             <?php
@@ -73,7 +72,6 @@ $kategori = getAllData("kategori");
                         <?= $data[2] == $k[0] ? '<td>' . $k[1] . '</td>' : '    ' ?>
                     <?php endforeach; ?>
                     <td><?= 'Rp ' . number_format($data[5], 0, "", ".") ?></td>
-                    <td>12</td>
                     <td>
                         <a href='show_product.php?id=<?= $data[0] ?>' class="btn info"><i class="fas fa-info-circle"></i> Detail</a>
                         <a href='tambahProduk.php?id=<?= $data[0] ?>' class="btn warning"><i class="fas fa-edit"></i> Edit</a>
