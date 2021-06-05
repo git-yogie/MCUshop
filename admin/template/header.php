@@ -29,9 +29,9 @@ if(!isset($_SESSION['data-login'])){
             <div class="logo">MCU</div>
             <div class="login-nama"><?= $_SESSION['data-login']['nama'] ?></div>
             <a href="index.php"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+            <a href="pesanan.php"><i class="fas fa-clipboard-list"></i>Pesanan</a>
             <a href="user.php"><i class="fas fa-users"></i>Data User</a>
             <a href="produk.php"><i class="fas fa-th-list"></i>Data Produk</a>
-            <a href="pengaturan.php"><i class="fas fa-cog"></i>Pengaturan</a>
         </div>
         <a href="<?=$baseUrl?>admin/system/login_check.php?logout=true" class="btn danger" style="text-align: center;"><i class="fas fa-sign-out-alt"></i> LogOut</a>
     </nav>

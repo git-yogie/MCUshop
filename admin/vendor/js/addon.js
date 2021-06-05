@@ -30,12 +30,12 @@ function dotInt(b) {
     return c;
 }
 
-function xhrGet(url){
-    var xhr = new XMLHttpRequest;
-    xhr.onloadend = function(){
-        var data = this.responseText
-        return data
-    }
-    xhr.open("GET",url,true)
-    xhr.send()
+function showModal(modal) {
+    var modal = document.getElementById(modal);
+    modal.style.display = "block";
+}
+
+function closeModal(modal) {
+    var modal = document.getElementById(modal);
+    modal.style.display = "none";
 }

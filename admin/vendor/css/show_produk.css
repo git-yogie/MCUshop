@@ -115,7 +115,7 @@
 
   .detail{
     margin-top: 20px;
-    display: flex;
+    /* display: flex; */
   }
 
   .detail table{

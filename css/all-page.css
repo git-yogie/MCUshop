@@ -25,8 +25,6 @@
       .card:hover{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
-      /* class card */
-      /* class card header */
       .card-body .card-header{
         margin-bottom: 15px ;
       }
@@ -166,3 +164,201 @@
   font-size: large;
   
 }
+
+.toasts{
+   position: fixed;
+   z-index: 3;
+   right: 20px;
+   top: 70px;
+}
+
+.toast{
+  width: 300px;
+  background-color: white;
+  padding: 10px;
+  padding-top: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 10px;
+}
+
+.toast .toast-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+}
+
+.alert{
+  margin-top: 10px;
+  display: flex;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 10px;
+}
+
+.alert .body{
+  margin-left: 10px;
+}
+
+.alert .header{
+  display: flex;
+  align-items: center;
+}
+
+.alert .header .icon{
+  font-size: 20px;
+  margin: 5px;
+}
+
+
+
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown-click {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-click-content {
+  margin-top: 10px ;
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  border-radius: 10px;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-click-content a {
+  transition: all 0.2s ease ;
+  margin-bottom: 5px;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-click-content a:hover {
+  transform: scale(1.04);
+}
+
+.showDropdown{
+  display: block;
+}
+
+ul.breadcrumb {
+  margin: 10px;
+  list-style: none;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 15px;
+}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "  / ";
+}
+
+ul.breadcrumb li a {
+  color: #3498db;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+ul.breadcrumb li a:hover {
+  color: #2980b9;
+  transform: scale(1.03);
+}
+
+.counter{
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  /* border: 1px solid #3498db; */
+  padding: 8px;
+}
+.counter .count{
+  padding:5px;
+
+}
+
+.disabled {
+	pointer-events: none;
+	opacity:0.5;
+}
+
+.diskonan-body {
+  display: flex;
+  align-items: center;
+}
+
+.card-pill {
+  padding: 10px;
+  margin: 5px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  transition: box-shadow 0.5s;
+}
+
+.card-pill:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-pill img{
+  width: 50px;
+  height: 50px;
+}
+
+.input-control-twoRow{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+}
+.input-control select{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin: 0px 10px;
+  height: 35px;
+  font-size: 15px;
+  padding: 5px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: all ease 0.3s;
+}
+
+.input-control select:focus{
+  border: 2px solid #3498db8e;
+}
+
+.pagination {
+  display: inline-block;
+  margin-top: 10px;
+  margin: 10px auto;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color .3s;
+}
+
+.pagination a.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #bdc3c7;}
+

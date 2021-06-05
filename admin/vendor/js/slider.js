@@ -15,7 +15,7 @@ window.onclick = function(event) {
     editModal.style.display = "none"
   }
 }
-
+alert
 function editSlider(id){
   const inputK = document.getElementById('nama')
   const inputId = document.getElementById('kid')

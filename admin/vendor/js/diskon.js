@@ -1,19 +1,6 @@
 // insiasi komponen
 showDiskon()
 
-
-// akhir insiasi
-
-
-// var modalAdd = document.getElementById("addModal");
-// var btnModalAdd = document.getElementById('btnAdd')
-
-// var modalEdit = document.getElementById("edit-modal");
-// var btnModalAdd = document.getElementById('btneEdit')
-
-// var shoProduk = document.getElementById("show-produk");
-// var btnModalAdd = document.getElementById('btnShow')
-
 function showModal(modal) {
     var modal = document.getElementById(modal);
     modal.style.display = "block";
@@ -182,8 +169,6 @@ function produk(kategori = null) {
     xhr.open("GET", url, true)
     xhr.send()
 }
-
-
 
 function produkList(id) {
     showModal('show-produk');

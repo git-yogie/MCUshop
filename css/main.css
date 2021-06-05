@@ -1,17 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 /* css halaman beranda (1) */
 
 @import url('page1.css');
-
 /* pewarnaan background dan text */
 
 @import url('color.css');
-
 /* untuk responsive */
 
 @import url('responsive.css');
-
 /* css untuk class standart */
 
 @import url('all-page.css');
@@ -20,15 +16,15 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    z-index: 1;
 }
 
-body{
+body {
     width: 100%;
+    height: 100%;
 }
 
 nav {
-    width:100% ;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -67,7 +63,7 @@ nav .buttons {
     padding: 7px 14px;
     outline: none;
     border: none;
-    background-color: #2980b9;
+    /* background-color: #2980b9; */
     color: white;
     cursor: pointer;
     margin-right: 10px;
@@ -75,6 +71,10 @@ nav .buttons {
     font-size: 14px;
     box-sizing: border-box;
     transition: background-color 0.5s;
+}
+
+.btn.block {
+    display: block;
 }
 
 .btn:hover {
@@ -150,7 +150,6 @@ nav .buttons input {
     margin: 20px auto;
 }
 
-
 /* dropdown kategori */
 
 .dropdown-content {
@@ -208,7 +207,6 @@ footer .copy i {
     margin-right: 5px;
 }
 
-
 /* modal */
 
 .modal {
@@ -251,8 +249,7 @@ footer .copy i {
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
@@ -262,11 +259,18 @@ footer .copy i {
     margin: 10px;
     display: flex;
     justify-content: space-between;
+
 }
 
+.modal-md {
+    width: 60%;
+}
+
+.modal-lg {
+    width: 90%;
+}
 
 /* modal end */
-
 
 /* form input */
 
@@ -290,11 +294,10 @@ form .input-control {
     /* border-bottom:1px solid black ; */
     transition: all ease 0.3s;
 }
+
 .input-control input:focus {
-        border: 3px solid #3498db8e;
-    }
-
-
+    border: 3px solid #3498db8e;
+}
 
 .input-control textarea {
     margin-top: 10px;
@@ -308,7 +311,6 @@ form .submit {
     padding: 10px 30px;
     border-radius: 18px;
 }
-
 
 /* scroll bar setting */
 
@@ -326,7 +328,15 @@ form .submit {
     border-radius: 15px;
 }
 
+.harga {
+    margin-top: 20px;
+    font-size: large;
+}
+
 @media screen and (max-width: 1000px) {
+    .dropdown-click-content {
+        transform: translateX(-50%);
+    }
     nav {
         justify-content: space-between;
     }
@@ -353,21 +363,33 @@ form .submit {
 }
 
 @media screen and (max-width: 680px) {
-/* tombol */
-    .btn{
-        font-size: 14px;
-    }
-   
-
-    .modal-content {
-        min-width: 80%;
-        max-width: 50%;
-    }
-    .card-body p{
+    /* tombol */
+    .dropdown:hover .dropdown-content {
         display: none;
     }
-
-
+    .input-control-twoRow{
+        flex-direction: column;
+    }
+    .sos{
+        margin: 10px auto; 
+        width:60%;
+    }
+    .btn {
+        font-size: 14px;
+    }
+    .harga {
+        font-size: 10px;
+    }
+    .qty{
+        display: none;
+    }
+    .modal-content {
+        min-width: 97%;
+        max-width: 50%;
+    }
+    .card-body p {
+        display: none;
+    }
     .container {
         margin-top: 50px;
         /* margin: 50px auto; */
@@ -424,27 +446,31 @@ form .submit {
     .card {
         width: 25%;
     }
-
-    .card-slide{
+    .card-slide {
         width: 150px;
         border: 2px solid black;
     }
-
-    .card-slide img{
+    .card-slide img {
         width: 140px;
-        
     }
-    .card-body{
+    .card-body {
         font-size: 10px;
     }
-
-    .card-body .card-btn{
+    .card-body .card-btn {
         font-size: 10px;
     }
-    .card-square{
+    .card-square {
         width: 100%;
         border-radius: 0px;
         height: auto;
-      }
-  
+    }
+}
+
+.link-sign {
+    text-decoration: none;
+    color: white;
+}
+
+.link-sign:hover {
+    text-decoration: underline;
 }

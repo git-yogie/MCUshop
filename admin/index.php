@@ -20,7 +20,7 @@ include 'dataSource\queryTable.php';
             <div class="icon primary"><i class="fas fa-users"></i></div>
             <div class="body">
                 <p>Jumlah customer</p>
-                <span>100</span>
+                <span><?=num_rows('customer')?></span>
             </div>
         </div>
         <div class="card-stat">
@@ -34,23 +34,24 @@ include 'dataSource\queryTable.php';
             <div class="icon warning"><i class="fas fa-clipboard-list"></i></div>
             <div class="body">
                 <p>Pesanan</p>
-                <span>100</span>
+                <span><?=num_rows('pesanan')?></span>
             </div>
         </div>
         <div class="card-stat">
             <div class="icon success"><i class="far fa-handshake"></i></div>
             <div class="body">
                 <p>Produk terjual</p>
-                <span>100</span>
+                <span><?=num_rows_column('pesanan','status','3')?></span>
             </div>
         </div>
     </div>
     <br>
     <div class="dashboard-menu">
-    <div class="header"><h4>HomePage Setup</h4></div>
+    <div class="header"><h4>dashboard Menu</h4></div>
        <div class="menu">
        <button class="btn primary" onclick="window.location = 'slider.php'"><i class="far fa-image"></i> Slider</button>
         <button class="btn primary" onclick="window.location = 'diskon.php'"><i class="fas fa-tags"></i>Diskon</button>
+        <button class="btn primary" onclick="window.location = 'pesan.php'"><i class="fas fa-envelope-open-text"></i> Pesan</button>
        </div>
     </div>
     <div class="table-Admin">

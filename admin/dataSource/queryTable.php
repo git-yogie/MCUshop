@@ -13,9 +13,13 @@ function getAllData($tabel){
     return $result->fetch_all();
 }
 
-function getAllDataAssoc($table){
+function getAllDataAssoc($table,$desc = false){
     global $koneksi;
-    $result = mysqli_query($koneksi,"SELECT * FROM $table");
+    if($desc == true){
+        $result = mysqli_query($koneksi,"SELECT * FROM $table ORDER BY id DESC");
+    }else{
+        $result = mysqli_query($koneksi,"SELECT * FROM $table");
+    }
     return mysqli_fetch_all($result,MYSQLI_ASSOC);
 }
 
@@ -52,10 +56,20 @@ function search($keyword,$table,$column){
     $data = mysqli_query($koneksi,"SELECT * FROM $table WHERE $column LIKE '%".$keyword."%'");
     return $data->fetch_all();	
 }
+function searchAssoc($keyword,$table,$column){
+    global $koneksi;
+    $data = mysqli_query($koneksi,"SELECT * FROM $table WHERE $column LIKE '%".$keyword."%'");
+    return mysqli_fetch_all($data,MYSQLI_ASSOC);	
+}
 
 function num_rows($table){
     global $koneksi;
     $result = mysqli_query($koneksi,"SELECT * FROM $table");
+    return mysqli_num_rows($result);
+}
+function num_rows_column($table,$column,$data){
+    global $koneksi;
+    $result = mysqli_query($koneksi, "SELECT * FROM $table WHERE $column=$data");
     return mysqli_num_rows($result);
 }
 
@@ -63,5 +77,11 @@ function getPage($table,$page,$limit){
     global $koneksi;
     $data = mysqli_query($koneksi, "select * from $table limit $page, $limit");
     return mysqli_fetch_all($data);
+
+}
+function getPageAssoc($table,$page,$limit){
+    global $koneksi;
+    $data = mysqli_query($koneksi, "select * from $table limit $page, $limit");
+    return mysqli_fetch_all($data,MYSQLI_ASSOC);
 
 }
