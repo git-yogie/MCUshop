@@ -97,11 +97,11 @@ if(isset($_POST['pesan'])){
             <form action="" method="post">
                 <div class="input-control">
                     <label for="">Nama</label>
-                    <input type="text" name="nama" <?=isset($_SESSION) ?'value="'.$_SESSION['data-login-customer']['nama'].'"' : ''?> >
+                    <input type="text" name="nama" <?=isset($_SESSION['data-login-customer']) ?'value="'.$_SESSION['data-login-customer']['nama'].'"' : ''?> >
                 </div>
                 <div class="input-control">
                     <label for="">Email</label>
-                    <input type="email" name="email" <?=isset($_SESSION) ?'value="'.$_SESSION['data-login-customer']['email'].'"' : ''?> >
+                    <input type="email" name="email" <?=isset($_SESSION['data-login-customer']) ?'value="'.$_SESSION['data-login-customer']['email'].'"' : ''?> >
                 </div>
                 <div class="input-control">
                     <label for="">Pesan</label>

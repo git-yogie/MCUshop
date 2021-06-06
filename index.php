@@ -77,7 +77,6 @@ $diskon = getAllDataAssoc('diskon');
                 $dataProduk = getDataBycolumn('list_produk_diskon', 'id_diskon', $data['id']);
 
         ?>
-
                 <div class="diskonan-body" style="margin-bottom: 10px;">
                     <div class="card-square" id='cardSquare'>
                         <h3><?= $data['nama'] ?>?</h3>

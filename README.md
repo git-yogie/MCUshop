@@ -34,7 +34,7 @@ teknologi
 5. Mysql
 
 library yang digunakan
-1.Font awsome (ikon)
+1. Font awsome (ikon)
 2. google Font (font pada semua halaman)(Roboto)
 3. Tiny MCE (what you see is what you get editor)
 
