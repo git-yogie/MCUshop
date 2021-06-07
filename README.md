@@ -41,11 +41,11 @@ library yang digunakan
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 untuk demo bisa mengunjungi *note "masih ada fitur yang belum berjalan untuk hosting" * bebas untuk dicoba.
 http://mcucomputer.epizy.com/
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 **Halaman Dashboard** "username berlaku untuk demo online maupun dengan instalasi"
 - username : admin
-- password : admin 
-- 
+- password : admin
+ 
 untuk halaman customer silahkan daftar terlebih dahulu!
 
 Instalasi
