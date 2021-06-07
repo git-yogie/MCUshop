@@ -39,18 +39,17 @@ library yang digunakan
 3. Tiny MCE (what you see is what you get editor)
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-untuk demo bisa mengunjungi 
+untuk demo bisa mengunjungi *note "masih ada fitur yang belum berjalan untuk hosting" * bebas untuk dicoba.
 http://mcucomputer.epizy.com/
-
-akan tetapi masih banyak fitur yang tidak bisa berjalan dihosting. silahkan dicoba2.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Halaman Dashboard**
-username : admin
-password : admin
+**Halaman Dashboard** "username berlaku untuk demo online maupun dengan instalasi"
+- username : admin
+- password : admin 
+- 
+untuk halaman customer silahkan daftar terlebih dahulu!
 
-untuk halaman utama tinggal daftar.
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Instalasi
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. Git clone https://github.com/git-yogie/MCUshop/ 
 2. Untuk database ada didalam file vendor.
 3. Buka xampp dan aktifkan apache dan mysql.
