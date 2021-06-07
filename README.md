@@ -38,10 +38,17 @@ library yang digunakan
 2. google Font (font pada semua halaman)(Roboto)
 3. Tiny MCE (what you see is what you get editor)
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+untuk demo bisa mengunjungi 
+http://mcucomputer.epizy.com/
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+akan tetapi masih banyak fitur yang tidak bisa berjalan dihosting. silahkan dicoba2.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Instalasi
-1. unduh projek
-2. untuk menjalankan install xampp
-3. buka phpmyadmin -> upload SQL (di beberapa kasus sql saat di export mungkin bisa error terutama bagian null)(akan diperbaiki nanti)
-4. Buka localhost.
+1. Git clone https://github.com/git-yogie/MCUshop/ 
+2. Untuk database ada didalam file vendor.
+3. Buka xampp dan aktifkan apache dan mysql.
+4. buka localhost/phpmyadmin-> buat database baru dengan nama "mcu-computer" -> klik tab impor -> pilih file "pilih file database di vendor" -> kirim;
+5. buka localhost/mcushop
+6. web sudah siap.
