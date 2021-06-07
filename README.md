@@ -43,7 +43,12 @@ untuk demo bisa mengunjungi
 http://mcucomputer.epizy.com/
 
 akan tetapi masih banyak fitur yang tidak bisa berjalan dihosting. silahkan dicoba2.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Halaman Dashboard**
+username : admin
+password : admin
 
+untuk halaman utama tinggal daftar.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Instalasi
 1. Git clone https://github.com/git-yogie/MCUshop/ 
